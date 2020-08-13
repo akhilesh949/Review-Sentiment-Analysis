@@ -11,7 +11,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 dataset = pd.read_csv('Restaurant_Reviews.tsv', delimiter = '\t', quoting = 3)
-#quoting = 3 igones double quotes in our data
+#quoting = 3 ignores double quotes in our data
 
 #Cleaning text
 import re
@@ -31,7 +31,7 @@ for i in range(0, 1000):
     corpus.append(review)
 
 #Creating the bag of words model
-from sklearn.feature_extraction.text import CountVectorizer #createing a sparse matrix with each word as a column (TOKENIZATION)
+from sklearn.feature_extraction.text import CountVectorizer #creating a sparse matrix with each word as a column (TOKENIZATION)
 cv = CountVectorizer(max_features = 1500) #includes 1500 most relevant words in the sparse matrix
 X = cv.fit_transform(corpus).toarray() #to array to convert into matrix
 y = dataset.iloc[:,1].values #dependent variable
